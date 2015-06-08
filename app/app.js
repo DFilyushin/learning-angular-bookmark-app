@@ -3,21 +3,23 @@
  * DONE List of tags with number of using.
  * DONE Removing bookmark.
  * DONE Filtering by tag.
- * TODO Pagination.
+ * DONE Pagination.
  * TODO New bookmark form.
  * TODO Editing bookmark.
  * TODO Add button "Last Bookmark".
- * TODO Store bookmarks on local storage.
+ * TODO Store bookmarks to local storage.
  */
 
 (function() {
   'use strict';
 
   var app = angular.module('bookmarkApp', [
+    'ui.bootstrap.pagination',
     'component.get-bookmarks',
     'component.bookmark-list',
     'component.tag-list',
-    'component.filterByTag'
+    'filter.byTag',
+    'filter.page'
   ]);
 
 })();

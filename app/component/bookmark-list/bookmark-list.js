@@ -3,7 +3,9 @@
 
   var app = angular.module('component.bookmark-list', []);
 
-  app.directive('bookmarkList', function() {
+  app.constant('PER_PAGE', 20);
+
+  app.directive('bookmarkList', function(PER_PAGE) {
     return {
       restrict: 'E',
       templateUrl: 'component/bookmark-list/bookmark-list.html',
@@ -18,6 +20,13 @@
 
         $scope.clearFilter = function() {
           $location.url('');
+        };
+
+        $scope.currentPage = 1;
+        $scope.perPage = PER_PAGE;
+
+        $scope.setPage = function (pageNo) {
+          $scope.currentPage = pageNo;
         };
       }
     };

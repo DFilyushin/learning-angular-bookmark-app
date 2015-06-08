@@ -37,3 +37,7 @@
 .glyphicon-remove {
     vertical-align: top;
 }
+
+bookmark-list .pagination {
+    margin: 0px 0px !important;
+}

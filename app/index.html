@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="bookmarkApp">
 <head>
-  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
-  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
   <script type="text/javascript" src="app.js"></script>
 
@@ -18,15 +19,16 @@
   <link rel="stylesheet" type="text/css" href="component/tag-list/tag-list.css"/>
   <script type="text/javascript" src="component/tag-list/tag-list.js"></script>
 
-  <!-- filterByTag component -->
-  <script type="text/javascript" src="component/filterByTag/filterByTag.js"></script>
+  <!-- filters -->
+  <script type="text/javascript" src="filter/byTag.js"></script>
+  <script type="text/javascript" src="filter/page.js"></script>
 
 </head>
 <body>
   <get-bookmarks></get-bookmarks>
   <div class="container">
     <h2>One Another Bookmark App</h2>
-    <span class="text-muted">Total bookmarks: <b>{{bookmarks.length}}</b></span>
+    <span class="text-muted">Total bookmarks: <span ng-if="filterCount < bookmarks.length"><b>{{filterCount}}</b> of </span><b>{{bookmarks.length}}</b></span>
     <div class="row">
       <bookmark-list class="col-md-10"></bookmark-list>
       <tag-list class="col-md-2"></tag-list>

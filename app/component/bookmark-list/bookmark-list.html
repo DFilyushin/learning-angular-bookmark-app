@@ -1,17 +1,9 @@
-<h3>Filtered by Tag: <b><span ng-show="filterTag==''">None</span>{{filterTag}}</b> <button ng-hide="filterTag===''" ng-click="clearFilter()" class="btn btn-xs glyphicon glyphicon-remove" title="Clear Filter"></button></h3>
+<h3>Filtered by Tag: <b>{{filterTag || 'None'}}</b> <button ng-hide="filterTag===''" ng-click="clearFilter()" class="btn btn-xs glyphicon glyphicon-remove" title="Clear Filter"></button></h3>
+
+<pagination ng-show="filterCount > perPage" total-items="filterCount" ng-model="currentPage" max-size="10" items-per-page="perPage" rotate="false" class="pagination-sm"></pagination>
 <table class="bookmark-table table table-striped">
   <tbody>
-  <!--<tr>-->
-    <!--<td></td>-->
-    <!--<td>-->
-      <!--<input type="text" ng-model="inputUrl" placeholder="Enter bookmark URL" autofocus/>-->
-      <!--<input type="text" ng-model="inputTitle" placeholder="Enter bookmark title"/>-->
-      <!--<input type="text" ng-model="inputTags" placeholder="Enter bookmark tags"/>-->
-      <!--<button class="btn btn-primary">Save</button>-->
-      <!--<button class="btn btn-default">Clear</button>-->
-    <!--</td>-->
-  <!--</tr>-->
-  <tr ng-repeat="bookmark in bookmarks | filterByTag:filterTag | limitTo:10" >
+  <tr ng-repeat="bookmark in bookmarks | byTag:filterTag:'filterCount' | page:currentPage" >
     <td>
       <button class="btn btn-warning btn-sm glyphicon glyphicon-edit" ng-click="edit(bookmark)" title="Edit Bookmark"></button><br/>
       <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="remove(bookmark)" title="Delete Bookmark"></button>
