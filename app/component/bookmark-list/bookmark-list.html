@@ -11,7 +11,7 @@
       <!--<button class="btn btn-default">Clear</button>-->
     <!--</td>-->
   <!--</tr>-->
-  <tr ng-repeat="bookmark in bookmarks | limitTo:20" >
+  <tr ng-repeat="bookmark in bookmarks | filterByTag:filterTag | limitTo:10" >
     <td>
       <button class="btn btn-warning btn-sm glyphicon glyphicon-edit" ng-click="edit(bookmark)" title="Edit Bookmark"></button><br/>
       <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="remove(bookmark)" title="Delete Bookmark"></button>
