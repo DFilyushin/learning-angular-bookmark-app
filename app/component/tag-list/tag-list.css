@@ -1,0 +1,9 @@
+.btn .badge {
+    /*color: #5cb85c;*/
+    color: black;
+    background-color: white;
+}
+.bookmark-tags li {
+    margin-top: 5px;
+    list-style-type: none;
+}

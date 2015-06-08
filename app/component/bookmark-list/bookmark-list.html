@@ -1,0 +1,33 @@
+<h3>Filtered by Tag: <b><span ng-show="filterTag==''">None</span>{{filterTag}}</b> <button ng-hide="filterTag===''" ng-click="clearFilter()" class="btn btn-xs glyphicon glyphicon-remove" title="Clear Filter"></button></h3>
+<table class="bookmark-table table table-striped">
+  <tbody>
+  <!--<tr>-->
+    <!--<td></td>-->
+    <!--<td>-->
+      <!--<input type="text" ng-model="inputUrl" placeholder="Enter bookmark URL" autofocus/>-->
+      <!--<input type="text" ng-model="inputTitle" placeholder="Enter bookmark title"/>-->
+      <!--<input type="text" ng-model="inputTags" placeholder="Enter bookmark tags"/>-->
+      <!--<button class="btn btn-primary">Save</button>-->
+      <!--<button class="btn btn-default">Clear</button>-->
+    <!--</td>-->
+  <!--</tr>-->
+  <tr ng-repeat="bookmark in bookmarks | limitTo:20" >
+    <td>
+      <button class="btn btn-warning btn-sm glyphicon glyphicon-edit" ng-click="edit(bookmark)" title="Edit Bookmark"></button><br/>
+      <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="remove(bookmark)" title="Delete Bookmark"></button>
+    </td>
+    <td>
+      <a href="{{bookmark.u}}" target="_blank">
+        <span ng-bind="bookmark.t"></span>
+        <span ng-bind="bookmark.d"></span>
+      </a>
+      <div ng-repeat="tag in bookmark.tags">
+        <span class="label label-success">
+          <i class="glyphicon glyphicon-tag"></i>
+          {{tag}}
+        </span>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

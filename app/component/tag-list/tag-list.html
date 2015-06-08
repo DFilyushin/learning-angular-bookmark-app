@@ -1,0 +1,6 @@
+<span class="glyphicon glyphicon-tags"></span>&nbsp;Tags:
+<div class="bookmark-tags">
+  <li ng-repeat="tag in tags">
+    <a href="{{makeTagLink(tag)}}" class="btn btn-xs" ng-class="{'btn-danger': tag.order <= 3, 'btn-success': tag.order > 3}">{{tag.name}} <span class="badge" ng-bind="tag.count"></span></a>
+  </li>
+</div>

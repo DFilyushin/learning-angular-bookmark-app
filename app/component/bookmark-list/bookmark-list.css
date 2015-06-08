@@ -1,0 +1,39 @@
+.bookmark-table tbody tr td:first-child button {
+    margin-bottom: 5px;
+}
+
+.bookmark-table tbody tr td:nth-child(2) a {
+    display: block;
+    text-decoration: none;
+}
+
+.bookmark-table tbody tr td:nth-child(2) a:hover {
+    color: red;
+}
+
+.bookmark-table tbody tr td:nth-child(2) span {
+    display: block;
+}
+
+.bookmark-table tbody tr td:nth-child(2) span:first-child {
+    font-weight: bold;
+}
+
+.bookmark-table tbody tr td:nth-child(2) span:nth-child(2) {
+    color: black;
+}
+
+/* Tags should be inline */
+.bookmark-table tbody tr td:nth-child(2) .ng-scope {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.bookmark-table input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.glyphicon-remove {
+    vertical-align: top;
+}

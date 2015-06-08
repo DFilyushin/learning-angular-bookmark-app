@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="bookmarkApp">
+<head>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+
+  <!-- get-bookmarks component -->
+  <script type="text/javascript" src="component/get-bookmarks/get-bookmarks.js"></script>
+
+  <!-- bookmark-list component -->
+  <link rel="stylesheet" type="text/css" href="component/bookmark-list/bookmark-list.css"/>
+  <script type="text/javascript" src="component/bookmark-list/bookmark-list.js"></script>
+
+  <!-- tag-list component -->
+  <link rel="stylesheet" type="text/css" href="component/tag-list/tag-list.css"/>
+  <script type="text/javascript" src="component/tag-list/tag-list.js"></script>
+
+</head>
+<body>
+  <get-bookmarks></get-bookmarks>
+  <div class="container">
+    <h2>One Another Bookmark App</h2>
+    <span class="text-muted">Total bookmarks: <b>{{bookmarks.length}}</b></span>
+    <div class="row">
+      <bookmark-list class="col-md-10"></bookmark-list>
+      <tag-list class="col-md-2"></tag-list>
+    </div>
+  </div>
+</body>
+</html>
