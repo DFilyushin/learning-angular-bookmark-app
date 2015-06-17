@@ -3,9 +3,9 @@
 <pagination ng-show="filterCount > perPage" total-items="filterCount" ng-model="currentPage" max-size="10" items-per-page="perPage" rotate="false" class="pagination-sm"></pagination>
 <table class="bookmark-table table table-striped">
   <tbody>
-  <tr ng-repeat="bookmark in bookmarks | byTag:filterTag:'filterCount' | page:currentPage" >
+  <tr ng-repeat="bookmark in bookmarks | byTag:filterTag:'filterCount' | limitTo:perPage:(currentPage-1)*perPage" >
     <td>
-      <button class="btn btn-warning btn-sm glyphicon glyphicon-edit" ng-click="edit(bookmark)" title="Edit Bookmark"></button><br/>
+      <button class="btn btn-warning btn-sm glyphicon glyphicon-edit" title="Edit Bookmark"></button><br/>
       <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="remove(bookmark)" title="Delete Bookmark"></button>
     </td>
     <td>
@@ -23,3 +23,4 @@
   </tr>
   </tbody>
 </table>
+<pagination ng-show="filterCount > perPage" total-items="filterCount" ng-model="currentPage" max-size="10" items-per-page="perPage" rotate="false" class="pagination-sm"></pagination>

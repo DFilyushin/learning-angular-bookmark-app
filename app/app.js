@@ -15,11 +15,12 @@
 
   var app = angular.module('bookmarkApp', [
     'ui.bootstrap.pagination',
+    'ui.bootstrap.modal',
     'component.get-bookmarks',
     'component.bookmark-list',
     'component.tag-list',
-    'filter.byTag',
-    'filter.page'
+    'component.bookmark-form',
+    'filter.byTag'
   ]);
 
 })();

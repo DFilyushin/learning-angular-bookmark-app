@@ -8,10 +8,11 @@
   app.directive('bookmarkList', function(PER_PAGE) {
     return {
       restrict: 'E',
-      templateUrl: 'component/bookmark-list/bookmark-list.html',
+      templateUrl: 'app/component/bookmark-list/bookmark-list.html',
       controller: function($scope, $location) {
-        $scope.edit = function(bookmark) {
-          alert(JSON.stringify(bookmark));
+
+        $scope.makeEditLink = function(bookmark) {
+          return '#/edit/' + btoa(bookmark.u);
         };
 
         $scope.remove = function(bookmark) {
@@ -24,10 +25,6 @@
 
         $scope.currentPage = 1;
         $scope.perPage = PER_PAGE;
-
-        $scope.setPage = function (pageNo) {
-          $scope.currentPage = pageNo;
-        };
       }
     };
   });
@@ -35,7 +32,7 @@
   app.run(function($rootScope, $location) {
     $rootScope.$on("$locationChangeSuccess",function(event, next, current){
       // fix '#' char
-      var tag = $location.url().replace(/\/(filter\/)?/, '').replace('_sharp_', '#').toLowerCase();
+      var tag = $location.url().replace(/\/(filter\/)?/, '').replace('_sharp_', '#').trim().toLowerCase();
 
       // lookup tag with correct char case
       $rootScope.tags.forEach(function(item){

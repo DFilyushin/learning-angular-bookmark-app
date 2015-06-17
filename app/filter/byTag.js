@@ -1,9 +1,8 @@
 (function() {
   'use strict';
 
-  var app = angular.module('filter.byTag', []);
-
-  app.filter('byTag', function($rootScope) {
+  angular.module('filter.byTag', [])
+  .filter('byTag', function($rootScope) {
     return function(array, tag, nameOfCounter) {
       if (!Array.isArray(array)) return array;
       $rootScope[nameOfCounter] = array.length;

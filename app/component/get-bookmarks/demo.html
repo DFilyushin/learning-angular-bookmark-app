@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+  <script type="text/javascript" src="../../../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="get-bookmarks.js"></script>
+  <script>
+    var app = angular.module('demoApp', ['component.get-bookmarks']);
+
+  </script>
+</head>
+<body>
+  <get-bookmarks from-src="../../data/dmoz_part.json" store-bookmarks-to="list1" store-tags-to="list2"></get-bookmarks>
+  <li>Number of bookmarks: {{list1.length}}</li>
+  <li>Number of tags: {{list2.length}}</li>
+</body>
+</html>
