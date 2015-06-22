@@ -9,8 +9,8 @@
     <kbd>Esc</kbd> Clear Filter
   </shortcut>
   <shortcut-group ng-show="filterCount > perPage">
-    <shortcut key-identifier="Home" do="firstPage()">
-      <kbd>Home</kbd> First Page
+    <shortcut ctrl-key key-identifier="Left" do="firstPage()">
+      <kbd>Ctrl</kbd>+<kbd>&larr;</kbd> First Page
     </shortcut>
     <shortcut key-code="65" do="prevPage()"></shortcut>
     <shortcut key-identifier="Left" do="prevPage()">
@@ -20,8 +20,8 @@
     <shortcut key-identifier="Right" do="nextPage()">
       <kbd>&rarr;</kbd> Next Page
     </shortcut>
-    <shortcut key-identifier="End" do="lastPage()">
-      <kbd>End</kbd> Last Page
+    <shortcut ctrl-key key-identifier="Right" do="lastPage()">
+      <kbd>Ctrl</kbd>+<kbd>&rarr;</kbd> Last Page
     </shortcut>
   </shortcut-group>
 </p>
