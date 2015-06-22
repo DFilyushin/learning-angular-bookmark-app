@@ -1,7 +1,13 @@
 (function() {
   'use strict';
 
-  var app = angular.module('component.bookmark-list', []);
+  var app = angular.module('component.bookmark-list', [
+    'ui.bootstrap.pagination',
+    'ui.bootstrap.modal',
+    'component.tag-href',
+    'component.shortcut',
+    'filter.byTag'
+  ]);
 
   app.constant('PER_PAGE', 20);
 
@@ -21,6 +27,37 @@
 
         $scope.clearFilter = function() {
           $location.url('');
+        };
+
+        $scope.getMaxPage = function() {
+          var count = $scope.filterCount;
+          var result = (count / PER_PAGE)|0;
+          if (count % PER_PAGE > 0)
+            result++;
+          return result;
+        }
+
+        $scope.nextPage = function() {
+          var maxPage = $scope.getMaxPage();
+          if ($scope.currentPage >= maxPage)
+            $scope.currentPage = maxPage;
+          else
+            $scope.currentPage++;
+        };
+
+        $scope.prevPage = function() {
+          if ($scope.currentPage <= 1)
+            $scope.currentPage = 1;
+          else
+            $scope.currentPage--;
+        };
+
+        $scope.firstPage = function() {
+          $scope.currentPage = 1;
+        };
+
+        $scope.lastPage = function() {
+          $scope.currentPage = $scope.getMaxPage();
         };
 
         $scope.currentPage = 1;

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+  <script type="text/javascript" src="../../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="byTag.js"></script>
+  <script type="text/javascript" src="makeLink.js"></script>
+  <script>
+    var app = angular.module('demoApp', ['filter.byTag', 'filter.makeLink']);
+
+  </script>
+</head>
+<body>
+  <h1>filter.makeLink</h1>
+  <blockquote>
+    <p ng-repeat="tag in ['JavaScript', 'HTML5', 'C#']">
+      "{{tag}}"|makeLink &rArr; "{{tag|makeLink}}"
+    </p>
+  </blockquote>
+</body>
+</html>

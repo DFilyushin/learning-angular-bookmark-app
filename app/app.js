@@ -14,14 +14,17 @@
   'use strict';
 
   var app = angular.module('bookmarkApp', [
-    'ui.bootstrap.pagination',
-    'ui.bootstrap.modal',
     'component.get-bookmarks',
     'component.bookmark-list',
-    'component.tag-list',
-    'component.bookmark-form',
-    'filter.byTag'
+    'component.tag-list'
   ]);
 
+  app.run(function($rootScope) {
+    $rootScope.removeAllBookmarks = function () {
+      $rootScope.bookmarks = [];
+      $rootScope.tags = [];
+      $rootScope.filterTag = '';
+    };
+  });
 })();
 

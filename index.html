@@ -7,31 +7,39 @@
 
   <script type="text/javascript" src="app/app.js"></script>
 
-  <!-- get-bookmarks component -->
-  <script type="text/javascript" src="app/component/get-bookmarks/get-bookmarks.js"></script>
+  <!-- bookmark-form component -->
+  <script type="text/javascript" src="app/component/bookmark-form/bookmark-form.js"></script>
 
   <!-- bookmark-list component -->
   <link rel="stylesheet" type="text/css" href="app/component/bookmark-list/bookmark-list.css"/>
   <script type="text/javascript" src="app/component/bookmark-list/bookmark-list.js"></script>
 
+  <!-- get-bookmarks component -->
+  <script type="text/javascript" src="app/component/get-bookmarks/get-bookmarks.js"></script>
+
+  <!-- shortcut component -->
+  <script type="text/javascript" src="app/component/shortcut/shortcut.js"></script>
+
+  <!-- tag-href component -->
+  <script type="text/javascript" src="app/component/tag-href/tag-href.js"></script>
+
   <!-- tag-list component -->
   <link rel="stylesheet" type="text/css" href="app/component/tag-list/tag-list.css"/>
   <script type="text/javascript" src="app/component/tag-list/tag-list.js"></script>
 
-  <!-- bookmark-form component -->
-  <script type="text/javascript" src="app/component/bookmark-form/bookmark-form.js"></script>
-
   <!-- filters -->
   <script type="text/javascript" src="app/filter/byTag.js"></script>
-
+  <script type="text/javascript" src="app/filter/makeLink.js"></script>
 </head>
 <body>
   <get-bookmarks from-src="app/data/dmoz_part.json" store-bookmarks-to="bookmarks" store-tags-to="tags"></get-bookmarks>
   <div class="container" style="padding-bottom: 40px">
     <h2>One Another Bookmark App</h2>
     <div class="text-muted">Total bookmarks: <span ng-if="filterCount < bookmarks.length"><b>{{filterCount}}</b> of </span><b>{{bookmarks.length}}</b></div>
-    <button ng-click="newBookmark()">New Bookmark</button>
-    <button>Last Bookmark</button>
+    <button class="btn btn-primary" ng-click="newBookmark()">New Bookmark</button>
+    <button class="btn btn-default">Last Bookmark</button>
+    &nbsp;
+    <button class="btn btn-danger" ng-click="removeAllBookmarks()">Delete All Bookmarks</button>
     <bookmark-form></bookmark-form>
     <div class="row">
       <bookmark-list class="col-md-10"></bookmark-list>

@@ -9,8 +9,20 @@
   </script>
 </head>
 <body>
+  <h1>component.get-bookmarks</h1>
   <get-bookmarks from-src="../../data/dmoz_part.json" store-bookmarks-to="list1" store-tags-to="list2"></get-bookmarks>
-  <li>Number of bookmarks: {{list1.length}}</li>
-  <li>Number of tags: {{list2.length}}</li>
+  Number of bookmarks: {{list1.length}}<br/>
+  <blockquote>
+    <div ng-repeat="item in list1|limitTo:5">
+      {{item|json}}
+    </div>
+    &hellip;
+  </blockquote>
+  Number of tags: {{list2.length}}</br>
+  <blockquote>
+    <div ng-repeat="item in list2">
+      {{item|json}}
+    </div>
+  </blockquote>
 </body>
 </html>

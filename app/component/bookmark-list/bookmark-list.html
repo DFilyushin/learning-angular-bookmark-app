@@ -1,5 +1,30 @@
-<h3>Filtered by Tag: <b>{{filterTag || 'None'}}</b> <button ng-hide="filterTag===''" ng-click="clearFilter()" class="btn btn-xs glyphicon glyphicon-remove" title="Clear Filter"></button></h3>
-
+<h3>
+  Filtered by Tag: <b>{{filterTag || 'None'}}</b>
+  <span ng-hide="filterTag===''">
+    <button ng-click="clearFilter()" class="btn btn-xs glyphicon glyphicon-remove" title="Clear Filter"></button>
+  </span>
+</h3>
+<p class="text-muted">
+  <shortcut key-code="27" do="clearFilter()" ng-hide="filterTag===''">
+    <kbd>Esc</kbd> Clear Filter
+  </shortcut>
+  <shortcut-group ng-show="filterCount > perPage">
+    <shortcut key-identifier="Home" do="firstPage()">
+      <kbd>Home</kbd> First Page
+    </shortcut>
+    <shortcut key-code="65" do="prevPage()"></shortcut>
+    <shortcut key-identifier="Left" do="prevPage()">
+      <kbd>&larr;</kbd> Previous Page
+    </shortcut>
+    <shortcut key-code="68" do="nextPage()"></shortcut>
+    <shortcut key-identifier="Right" do="nextPage()">
+      <kbd>&rarr;</kbd> Next Page
+    </shortcut>
+    <shortcut key-identifier="End" do="lastPage()">
+      <kbd>End</kbd> Last Page
+    </shortcut>
+  </shortcut-group>
+</p>
 <pagination ng-show="filterCount > perPage" total-items="filterCount" ng-model="currentPage" max-size="10" items-per-page="perPage" rotate="false" class="pagination-sm"></pagination>
 <table class="bookmark-table table table-striped">
   <tbody>
@@ -14,10 +39,10 @@
         <span ng-bind="bookmark.d"></span>
       </a>
       <div ng-repeat="tag in bookmark.tags">
-        <span class="label label-success">
+        <a tag-href="tag" class="label label-success">
           <i class="glyphicon glyphicon-tag"></i>
           {{tag}}
-        </span>
+        </a>
       </div>
     </td>
   </tr>
