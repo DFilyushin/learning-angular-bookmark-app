@@ -17,14 +17,6 @@
       templateUrl: 'app/component/bookmark-list/bookmark-list.html',
       controller: function($scope, $location) {
 
-        $scope.makeEditLink = function(bookmark) {
-          return '#/edit/' + btoa(bookmark.u);
-        };
-
-        $scope.remove = function(bookmark) {
-          $scope.bookmarks.splice($scope.bookmarks.indexOf(bookmark), 1);
-        };
-
         $scope.clearFilter = function() {
           $location.url('');
         };

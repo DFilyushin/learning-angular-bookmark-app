@@ -80,6 +80,23 @@
       return tagsArray;
     };
 
+    /**
+     * @param str
+     * @returns array
+     */
+    result.parseTags = function(str) {
+      if (Array.isArray(str)) return str;
+
+      var array = [];
+      var tags = str.split(/[, ]/);
+      tags.forEach(function(item) {
+        item = item.trim();
+        if (item.length > 0)
+          array.push(item);
+      });
+      return array;
+    }
+
     return result;
   });
 

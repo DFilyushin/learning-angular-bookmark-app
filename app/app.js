@@ -16,7 +16,8 @@
   var app = angular.module('bookmarkApp', [
     'component.get-bookmarks',
     'component.bookmark-list',
-    'component.tag-list'
+    'component.tag-list',
+    'component.bookmark-form'
   ]);
 
   app.run(function($rootScope) {

@@ -5,6 +5,7 @@
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="app/app.css"/>
   <script type="text/javascript" src="app/app.js"></script>
 
   <!-- bookmark-form component -->
@@ -37,8 +38,7 @@
     <h2>One Another Bookmark App</h2>
     <div class="text-muted">Total bookmarks: <span ng-if="filterCount < bookmarks.length"><b>{{filterCount}}</b> of </span><b>{{bookmarks.length}}</b></div>
     <button class="btn btn-primary" ng-click="newBookmark()">New Bookmark</button>
-    <button class="btn btn-default">Last Bookmark</button>
-    &nbsp;
+    <button class="btn btn-default" ng-click="lastBookmark()" ng-disabled="!savedBookmark">Last Bookmark</button>
     <button class="btn btn-danger" ng-click="removeAllBookmarks()">Delete All Bookmarks</button>
     <bookmark-form></bookmark-form>
     <div class="row">
