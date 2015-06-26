@@ -34,6 +34,24 @@
   app.factory('tagsFactory', function() {
     var result = [];
 
+
+    /**
+     * @param tags
+     * @returns array
+     */
+    result.uniqueItems = function(tags) {
+      var hash = {};
+      var out = [];
+      tags.forEach(function(item) {
+        var key = item.toLowerCase();
+        if (hash[key] === undefined) {
+          hash[key] = item;
+          out.push(item);
+        }
+      });
+      return out;
+    };
+
     /**
      * @param data
      * @returns {Array}
@@ -42,11 +60,13 @@
       // get tag list and number of use each tag
       var tags = [];
       data.forEach(function(item) {
+        item.tags = result.uniqueItems(item.tags);
         item.tags.forEach(function(tag) {
-          if (tags[tag] === undefined) {
-            tags[tag] = {name: tag, count: 1};
+          var key = tag.toLowerCase();
+          if (tags[key] === undefined) {
+            tags[key] = {name: tag, count: 1};
           } else {
-            tags[tag].count++;
+            tags[key].count++;
           }
         });
       });
@@ -73,8 +93,10 @@
       });
       // sort by alphabet
       tagsArray.sort(function(a, b) {
-        if (a.name < b.name) { return -1; }
-        if (a.name === b.name) { return 0; }
+        var key1 = a.name.toLowerCase();
+        var key2 = b.name.toLowerCase();
+        if (key1 < key2) { return -1; }
+        if (key1 === key2) { return 0; }
         return 1;
       });
       return tagsArray;

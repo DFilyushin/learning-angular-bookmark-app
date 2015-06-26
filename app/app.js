@@ -4,9 +4,9 @@
  * DONE Removing bookmark.
  * DONE Filtering by tag.
  * DONE Pagination.
- * TODO New bookmark form.
- * TODO Editing bookmark.
- * TODO Add button "Last Bookmark".
+ * DONE New bookmark form.
+ * DONE Editing bookmark.
+ * DONE Add button "Last Bookmark".
  * TODO Store bookmarks to local storage.
  */
 
@@ -20,11 +20,11 @@
     'component.bookmark-form'
   ]);
 
-  app.run(function($rootScope) {
+  app.run(function($rootScope, $location) {
     $rootScope.removeAllBookmarks = function () {
       $rootScope.bookmarks = [];
       $rootScope.tags = [];
-      $rootScope.filterTag = '';
+      $location.url('');
     };
   });
 })();

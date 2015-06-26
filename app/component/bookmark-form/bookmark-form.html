@@ -2,7 +2,7 @@
   <form name="editForm" novalidate>
     <div class="modal-header">
       <h3 class="modal-title" ng-switch on="mode">
-        <span ng-switch-when="ADD">Add Bookmark</span>
+        <span ng-switch-when="ADD">New Bookmark</span>
         <span ng-switch-when="EDIT">Edit Bookmark</span>
       </h3>
     </div>
@@ -27,8 +27,8 @@
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn btn-primary" ng-disabled="editForm.$invalid" ng-click="ok()" ng-switch on="mode">
-        <span ng-switch-when="ADD">Add</span>
-        <span ng-switch-when="EDIT">Save</span>
+        <span ng-switch-when="ADD">Create</span>
+        <span ng-switch-when="EDIT">Update</span>
       </button>
       <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
